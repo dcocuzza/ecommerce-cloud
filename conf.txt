@@ -1,0 +1,80 @@
+COMANDI DOCKER device-shop-client
+docker build -t device-shop-client .
+docker run -it --name device-shop-client device-shop-client //-it perché è un container interattivo
+docker start device-shop-client //se già esiste
+
+COMANDI DOCKER device-shop-server
+docker build -t device-shop-server .
+docker run --name device-shop-server device-shop-server
+docker start device-shop-server //se già esiste
+
+COMANDI DOCKER device-shop-session
+docker build -t device-shop-session .
+docker run --name device-shop-session device-shop-session
+docker start device-shop-session //se già esiste
+
+COMANDI PER FARLI PARTIRE TUTTI
+docker compose up
+docker compose build
+docker compose down
+docker-compose run device-shop-client
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+NETWORK
+docker network create --subnet=10.0.100.0/24 ecommerce
+docker network ls
+
+
+CLIENT CON NETWORK
+docker run -it --name device-shop-client --network ecommerce --ip 10.0.100.22 -p 10000:10000 device-shop-client
+
+SERVER CON NETWORK
+docker run -d --name device-shop-server --network ecommerce --ip 10.0.100.23 -p 51234:51234 device-shop-server
+
+SESSION CON NETWORK
+docker run -d --name device-shop-session --network ecommerce --ip 10.0.100.24 -p 51235:51235 device-shop-session
+
+
+DOCKER: creare un repository su Docker Hub di nome device-shop
+
+PUSH CLIENT
+docker tag device-shop-client danielecocuzza/device-shop:client
+docker push danielecocuzza/device-shop:client 
+
+PUSH SERVER
+docker tag device-shop-server danielecocuzza/device-shop:server
+docker push danielecocuzza/device-shop:server
+
+PUSH SESSION
+docker tag device-shop-session danielecocuzza/device-shop:session
+docker push danielecocuzza/device-shop:session
+
+PULL (cambiare in base il microservizio)
+docker pull danielecocuzza/device-shop:client 
+
+RUN dopo la PULL
+docker run -it --name device-shop-client --network ecommerce --ip 10.0.100.22 -p 10000:10000 danielecocuzza/device-shop:client
+docker run -d --name device-shop-server --network ecommerce --ip 10.0.100.23 -p 51234:51234 danielecocuzza/device-shop:server
+docker run -d --name device-shop-session --network ecommerce --ip 10.0.100.24 -p 51235:51235 danielecocuzza/device-shop:session
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,68 @@
+ARCHITETTURA KUBERNETES
+Pod: Un pod è l'unità di base di esecuzione in Kubernetes e può contenere uno o più container. I pod sono eseguiti sui nodi del cluster.
+Nodi: Un nodo è una macchina (fisica o virtuale) che partecipa al cluster Kubernetes e fornisce le risorse necessarie per eseguire i pod. 
+Un cluster è un insieme di macchine (fisiche o virtuali) che lavorano insieme per eseguire e gestire applicazioni containerizzate.
+
++--------------------------------+
+|          Master Node            |
+| +-----------------------------+ |
+| | API Server                   | |
+| | Controller Manager           | |
+| | Scheduler                    | |
+| | Etcd                         | |
+| | Cloud Controller Manager     | |
+| +-----------------------------+ |
++--------------------------------+
+           /          \
+          /            \
++----------------+   +----------------+
+| Worker Node 1  |   | Worker Node 2  |
+| +------------+ |   | +------------+ |
+| | Kubelet    | |   | | Kubelet    | |
+| | Kube-Proxy | |   | | Kube-Proxy | |
+| | Container  | |   | | Container  | |
+| | Runtime    | |   | | Runtime    | |
+| +------------+ |   | +------------+ |
+|   ...          |   |   ...          |
++----------------+   +----------------+
+          \
+           \
++----------------+
+| Worker Node 3  |
+| +------------+ |
+| | Kubelet    | |
+| | Kube-Proxy | |
+| | Container  | |
+| | Runtime    | |
+| +------------+ |
+|   ...          |
++----------------+
+
+
+MINIKUBE
+minikube start
+minikube delete //se ci sono problemi
+minikube status
+
+kubectl apply -f device-shop-client-deployment.yaml
+kubectl apply -f device-shop-server-deployment.yaml
+kubectl apply -f device-shop-session-deployment.yaml
+kubectl apply -f device-shop-client-service.yaml
+kubectl apply -f device-shop-server-service.yaml
+kubectl apply -f device-shop-session-service.yaml
+
+kubectl delete -f device-shop-client-deployment.yaml
+kubectl delete -f device-shop-server-deployment.yaml
+kubectl delete -f device-shop-session-deployment.yaml
+kubectl delete -f device-shop-client-service.yaml
+kubectl delete -f device-shop-server-service.yaml
+kubectl delete -f device-shop-session-service.yaml
+
+
+kubectl get deployments
+kubectl get services
+kubectl get pods
+kubectl get nodes
+
+kubectl logs <nome-pod>
+
