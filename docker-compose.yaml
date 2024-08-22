@@ -1,0 +1,51 @@
+version: '3.7'
+services:
+
+    device-shop-client:
+        build: 
+            context: device-shop-client
+            dockerfile: Dockerfile
+
+        container_name: device-shop-client
+        ports:
+          - 10000:10000
+        networks: 
+            ecommerce:
+                ipv4_address: 10.0.100.22
+        stdin_open: true  
+        tty: true
+        command: /bin/bash 
+
+    device-shop-server:
+        build: 
+            context: device-shop-server
+            dockerfile: Dockerfile
+
+        container_name: device-shop-server
+        ports:
+          - 51234:51234
+        networks: 
+            ecommerce:
+                ipv4_address: 10.0.100.23
+    
+    device-shop-session:
+        build: 
+            context: device-shop-session
+            dockerfile: Dockerfile
+
+        container_name: device-shop-session
+        ports:
+          - 51235:51235
+        networks: 
+            ecommerce:
+                ipv4_address: 10.0.100.24
+
+  
+
+networks:
+    ecommerce:
+        name: ecommerce
+        driver: bridge
+        ipam:
+            config:
+                - subnet: 10.0.100.0/24

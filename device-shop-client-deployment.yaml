@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: device-shop-client
+  labels:
+    app: device-shop-client
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: device-shop-client
+  template:
+    metadata:
+      labels:
+        app: device-shop-client
+    spec:
+      containers:
+      - name: device-shop-client
+        image: danielecocuzza/device-shop:client
+        stdin: true
+        tty: true
+        ports:
+        - containerPort: 10000

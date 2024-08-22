@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: device-shop-server
+  labels:
+    app: device-shop-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: device-shop-server
+  template:
+    metadata:
+      labels:
+        app: device-shop-server
+    spec:
+      containers:
+      - name: device-shop-server
+        image: danielecocuzza/device-shop:server
+        ports:
+        - containerPort: 51234

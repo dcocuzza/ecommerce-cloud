@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: device-shop-session
+  labels:
+    app: device-shop-session
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: device-shop-session
+  template:
+    metadata:
+      labels:
+        app: device-shop-session
+    spec:
+      containers:
+      - name: device-shop-session
+        image: danielecocuzza/device-shop:session
+        ports:
+        - containerPort: 51235

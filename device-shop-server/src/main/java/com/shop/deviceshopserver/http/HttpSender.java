@@ -11,7 +11,7 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 public class HttpSender {
-    private String uri = "http://localhost:50000/session";
+    private String uri = "http://10.0.100.24:51235/session";
 
     public Status getSession(String id) {
         String newUri = uri + "/" + id;

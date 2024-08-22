@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: device-shop-session
+spec:
+  ports:
+  - port: 51235
+    targetPort: 51235
+  selector:
+    app: device-shop-session
