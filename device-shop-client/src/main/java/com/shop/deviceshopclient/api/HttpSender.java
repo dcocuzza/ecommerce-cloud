@@ -10,7 +10,7 @@ public class HttpSender {
 
     public HttpSender(){}
 
-    private String uri = "http://10.0.100.23:51234/device";
+    private String uri = "http://device-shop-server:51234/device";
 
     public int getAllDevices() throws IOException, InterruptedException{
         HttpRequest req = HttpRequest.newBuilder().uri(URI.create(uri)).GET().version(java.net.http.HttpClient.Version.HTTP_2).build();

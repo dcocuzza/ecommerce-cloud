@@ -65,4 +65,8 @@ kubectl get pods
 kubectl get nodes
 
 kubectl logs <nome-pod>
+kubectl delete pod <nome-pod>
+
+kubectl attach -it device-shop-client-57f68db6dd-c4r2n -c device-shop-client  //per collegarsi al terminale dell'applicativo Java
+kubectl exec -it <nome-del-pod> -- /bin/sh //accede alla shell del container
 
