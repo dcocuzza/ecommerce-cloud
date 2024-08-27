@@ -5,7 +5,6 @@ sudo yum install git -y
 
 # Clone the repository
 git clone https://github.com/dcocuzza/ecommerce-cloud.git
-cd ecommerce-cloud
 
 # Install Docker
 sudo yum install docker -y
@@ -31,9 +30,9 @@ chmod +x kubectl
 sudo mv kubectl /usr/local/bin/
 
 # Apply Kubernetes configurations
-kubectl apply -f device-shop-client-deployment.yaml
-kubectl apply -f device-shop-server-deployment.yaml
-kubectl apply -f device-shop-session-deployment.yaml
-kubectl apply -f device-shop-client-service.yaml
-kubectl apply -f device-shop-server-service.yaml
-kubectl apply -f device-shop-session-service.yaml
+kubectl apply -f ecommerce-cloud/device-shop-client-deployment.yaml
+kubectl apply -f ecommerce-cloud/device-shop-server-deployment.yaml
+kubectl apply -f ecommerce-cloud/device-shop-session-deployment.yaml
+kubectl apply -f ecommerce-cloud/device-shop-client-service.yaml
+kubectl apply -f ecommerce-cloud/device-shop-server-service.yaml
+kubectl apply -f ecommerce-cloud/device-shop-session-service.yaml
