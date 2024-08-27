@@ -17,19 +17,21 @@ docker pull danielecocuzza/device-shop:client
 docker pull danielecocuzza/device-shop:server
 docker pull danielecocuzza/device-shop:session
 
-# Install Minikube
-curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
-sudo install minikube-linux-amd64 /usr/local/bin/minikube && rm minikube-linux-amd64
-export PATH=$PATH:/usr/local/bin
-source ~/.bashrc
-
-# Start Minikube
-minikube start
-
 # Install kubectl
 curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
 chmod +x kubectl
 sudo mv kubectl /usr/local/bin/
+
+# Install Minikube
+curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+sudo install minikube-linux-amd64 /usr/local/bin/minikube && rm minikube-linux-amd64
+
+export PATH=$PATH:/usr/local/bin
+source ~/.bashrc
+
+# Start Minikube
+minikube start --driver=docker
+
 
 sleep 60
 
