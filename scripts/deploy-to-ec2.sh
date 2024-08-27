@@ -30,9 +30,9 @@ chmod +x kubectl
 sudo mv kubectl /usr/local/bin/
 
 # Apply Kubernetes configurations
-kubectl apply -f ecommerce-cloud/device-shop-client-deployment.yaml
-kubectl apply -f ecommerce-cloud/device-shop-server-deployment.yaml
-kubectl apply -f ecommerce-cloud/device-shop-session-deployment.yaml
-kubectl apply -f ecommerce-cloud/device-shop-client-service.yaml
-kubectl apply -f ecommerce-cloud/device-shop-server-service.yaml
-kubectl apply -f ecommerce-cloud/device-shop-session-service.yaml
+kubectl apply -f ecommerce-cloud/device-shop-client-deployment.yaml --validate=false
+kubectl apply -f ecommerce-cloud/device-shop-server-deployment.yaml --validate=false
+kubectl apply -f ecommerce-cloud/device-shop-session-deployment.yaml --validate=false
+kubectl apply -f ecommerce-cloud/device-shop-client-service.yaml --validate=false
+kubectl apply -f ecommerce-cloud/device-shop-server-service.yaml --validate=false
+kubectl apply -f ecommerce-cloud/device-shop-session-service.yaml --validate=false
