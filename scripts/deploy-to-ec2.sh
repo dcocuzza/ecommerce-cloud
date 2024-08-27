@@ -21,6 +21,7 @@ docker pull danielecocuzza/device-shop:session
 curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
 sudo install minikube-linux-amd64 /usr/local/bin/minikube && rm minikube-linux-amd64
 export PATH=$PATH:/usr/local/bin
+source ~/.bashrc
 
 # Start Minikube
 minikube start
