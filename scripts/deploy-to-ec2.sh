@@ -29,6 +29,9 @@ curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stabl
 chmod +x kubectl
 sudo mv kubectl /usr/local/bin/
 
+sleep 30
+
+
 # Apply Kubernetes configurations
 kubectl apply -f ecommerce-cloud/device-shop-client-deployment.yaml 
 kubectl apply -f ecommerce-cloud/device-shop-server-deployment.yaml
