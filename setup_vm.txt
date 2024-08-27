@@ -1,0 +1,70 @@
+SSH
+ssh -i Device-Shop.pem ec2-user@13.60.210.212
+
+GIT
+sudo yum update -y
+sudo yum install git -y
+git clone https://github.com/dcocuzza/ecommerce-cloud.git
+cd ecommerce-cloud
+
+INSTALL DOCKER
+sudo yum update -y
+sudo yum install docker -y
+sudo systemctl start docker
+sudo docker run hello-world //verify installation
+sudo systemctl enable docker //avviare docker in automatico
+
+sudo groupadd docker //dovrebbe già esistere
+sudo usermod -aG docker ec2-user
+sudo usermod -a -G docker $(whoami) //se non so il nome utente
+newgrp docker
+
+docker pull danielecocuzza/device-shop:client 
+docker pull danielecocuzza/device-shop:server 
+docker pull danielecocuzza/device-shop:session 
+
+
+MINIKUBE
+curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+sudo install minikube-linux-amd64 /usr/local/bin/minikube && rm minikube-linux-amd64
+
+minikube start
+minikube delete
+sudo minikube start --driver=docker //per forzare il driver
+sudo minikube config set driver docker //per settarlo di default
+
+docker ps
+
+curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+chmod +x kubectl
+sudo mv kubectl /usr/local/bin/
+
+
+kubectl apply -f device-shop-client-deployment.yaml
+kubectl apply -f device-shop-server-deployment.yaml
+kubectl apply -f device-shop-session-deployment.yaml
+kubectl apply -f device-shop-client-service.yaml
+kubectl apply -f device-shop-server-service.yaml
+kubectl apply -f device-shop-session-service.yaml
+
+kubectl delete -f device-shop-client-deployment.yaml
+kubectl delete -f device-shop-server-deployment.yaml
+kubectl delete -f device-shop-session-deployment.yaml
+kubectl delete -f device-shop-client-service.yaml
+kubectl delete -f device-shop-server-service.yaml
+kubectl delete -f device-shop-session-service.yaml
+
+kubectl get deployments
+kubectl get services
+kubectl get pods
+kubectl get nodes
+
+kubectl logs <nome-pod>
+kubectl delete pod <nome-pod>
+
+kubectl attach -it device-shop-client-57f68db6dd-c4r2n -c device-shop-client  //per collegarsi al terminale dell'applicativo Java
+kubectl exec -it <nome-del-pod> -- /bin/sh //accede alla shell del container
+
+
+
+⛔  Exiting due to RSRC_INSUFFICIENT_CONTAINER_MEMORY: docker only has 904MiB available, less than the required 1800MiB for Kubernetes
