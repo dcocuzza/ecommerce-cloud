@@ -50,7 +50,7 @@ docker run -d --name device-shop-session --network ecommerce --ip 10.0.100.24 -p
 DOCKER: creare un repository su Docker Hub di nome device-shop
 
 PUSH CLIENT
-docker tag device-shop-client danielecocuzza/device-shop:client
+docker tag device-shop-client danielecocuzza/device-shop:client 
 docker push danielecocuzza/device-shop:client 
 
 PUSH SERVER
