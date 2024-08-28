@@ -51,7 +51,7 @@ DOCKER: creare un repository su Docker Hub di nome device-shop
 
 PUSH CLIENT
 docker tag device-shop-client danielecocuzza/device-shop:client 
-docker push danielecocuzza/device-shop:client 
+docker push danielecocuzza/device-shop:client  
 
 PUSH SERVER
 docker tag device-shop-server danielecocuzza/device-shop:server
