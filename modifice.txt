@@ -1,0 +1,3 @@
+1) Aggiornamento Kubernetes
+2) Raggiungimento Server dall'esterno
+3) Aggiornamento immagini Docker
