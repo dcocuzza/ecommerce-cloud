@@ -3,23 +3,23 @@ name: Deploy to EC2
 on:
   push:
     branches:
-      - main  # Modifica con il nome del branch che desideri monitorare
+      - main  
 
 jobs:
   deploy:
-    runs-on: ubuntu-latest  # Usa un runner Ubuntu fornito da GitHub
+    runs-on: ubuntu-latest  
 
     env:
-      EC2_IP: 51.20.79.186
+      EC2_IP: 13.53.122.173
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v3  # Controlla il codice dal repository
+      uses: actions/checkout@v3  
 
     - name: Set up SSH
-      uses: webfactory/ssh-agent@v0.5.3  # Configura l'agente SSH
+      uses: webfactory/ssh-agent@v0.5.3  
       with:
-        ssh-private-key: ${{ secrets.EC2_SSH_KEY }}  # Aggiungi la tua chiave SSH privata come secret
+        ssh-private-key: ${{ secrets.EC2_SSH_KEY }}  
 
     - name: Copy script 1 to EC2
       run: scp -o StrictHostKeyChecking=no ./scripts/deploy1.sh ec2-user@${{ env.EC2_IP }}:/home/ec2-user/
