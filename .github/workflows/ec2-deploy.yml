@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest  
 
     env:
-      EC2_IP: 51.20.182.50
+      EC2_IP: 13.53.176.182
 
     steps:
     - name: Checkout code
