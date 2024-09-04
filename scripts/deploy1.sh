@@ -3,9 +3,14 @@
 # Install Git
 sudo yum install git -y
 
-sleep 30
 # Clone the repository
 git clone https://github.com/dcocuzza/ecommerce-cloud.git
+
+# Update repository
+current_dir=$(pwd)
+cd /home/ec2-user/ecommerce-cloud
+git pull 
+cd "$current_dir"
 
 # Install Docker
 sudo yum install docker -y
