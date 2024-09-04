@@ -3,7 +3,7 @@ docker build -t device-shop-client .
 docker run -it --name device-shop-client device-shop-client //-it perché è un container interattivo
 docker start device-shop-client //se già esiste
 
-COMANDI DOCKER device-shop-server
+COMANDI DOCKER device-shop-server 
 docker build -t device-shop-server .
 docker run --name device-shop-server device-shop-server
 docker start device-shop-server //se già esiste
