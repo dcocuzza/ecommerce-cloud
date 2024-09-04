@@ -3,6 +3,7 @@
 # Install Git
 sudo yum install git -y
 
+sleep 30
 # Clone the repository
 git clone https://github.com/dcocuzza/ecommerce-cloud.git
 
