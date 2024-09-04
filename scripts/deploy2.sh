@@ -12,6 +12,5 @@ kubectl apply -f ecommerce-cloud/device-shop-client-service.yaml
 kubectl apply -f ecommerce-cloud/device-shop-server-service.yaml 
 kubectl apply -f ecommerce-cloud/device-shop-session-service.yaml
 kubectl apply -f ecommerce-cloud/device-shop-server-lb.yaml
-kubectl apply -f ecommerce-cloud/device-shop-server-nodeport.yaml
 
  
