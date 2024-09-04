@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: device-shop-server-lb
+spec:
+  type: LoadBalancer
+  selector:
+    app: device-shop-server
+  ports:
+    - protocol: TCP
+      port: 51234
+      targetPort: 51234

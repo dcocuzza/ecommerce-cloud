@@ -46,6 +46,8 @@ kubectl apply -f device-shop-session-deployment.yaml
 kubectl apply -f device-shop-client-service.yaml
 kubectl apply -f device-shop-server-service.yaml
 kubectl apply -f device-shop-session-service.yaml
+kubectl apply -f load-balancer-service.yaml
+
 
 kubectl delete -f device-shop-client-deployment.yaml
 kubectl delete -f device-shop-server-deployment.yaml
@@ -53,6 +55,7 @@ kubectl delete -f device-shop-session-deployment.yaml
 kubectl delete -f device-shop-client-service.yaml
 kubectl delete -f device-shop-server-service.yaml
 kubectl delete -f device-shop-session-service.yaml
+kubectl delete -f load-balancer-service.yaml
 
 kubectl get deployments
 kubectl get services

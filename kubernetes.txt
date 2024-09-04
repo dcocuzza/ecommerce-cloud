@@ -50,6 +50,7 @@ kubectl apply -f device-shop-session-deployment.yaml
 kubectl apply -f device-shop-client-service.yaml
 kubectl apply -f device-shop-server-service.yaml
 kubectl apply -f device-shop-session-service.yaml
+kubectl apply -f device-shop-server-lb.yaml
 
 kubectl delete -f device-shop-client-deployment.yaml
 kubectl delete -f device-shop-server-deployment.yaml
@@ -57,6 +58,7 @@ kubectl delete -f device-shop-session-deployment.yaml
 kubectl delete -f device-shop-client-service.yaml
 kubectl delete -f device-shop-server-service.yaml
 kubectl delete -f device-shop-session-service.yaml
+kubectl delete -f device-shop-server-lb.yaml
 
 
 kubectl get deployments
@@ -69,4 +71,6 @@ kubectl delete pod <nome-pod>
 
 kubectl attach -it device-shop-client-57f68db6dd-c4r2n -c device-shop-client  //per collegarsi al terminale dell'applicativo Java
 kubectl exec -it <nome-del-pod> -- /bin/sh //accede alla shell del container
+
+kubectl get svc device-shop-server-lb //ottieni l'ip del servizio
 
