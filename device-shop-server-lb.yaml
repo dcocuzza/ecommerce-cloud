@@ -4,6 +4,7 @@ metadata:
   name: device-shop-server-lb
 spec:
   type: LoadBalancer
+  loadBalancerIP: 16.170.157.182
   selector:
     app: device-shop-server
   ports:

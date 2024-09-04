@@ -74,3 +74,5 @@ kubectl exec -it <nome-del-pod> -- /bin/sh //accede alla shell del container
 
 kubectl get svc device-shop-server-lb //ottieni l'ip del servizio
 
+sudo chmod 666 /var/run/docker.sock
+minikube tunnel
